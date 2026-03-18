@@ -42,6 +42,21 @@ export default function Navbar() {
           ))}
         </ul>
 
+        <button 
+  onClick={() => setMenuOpen(!menuOpen)}
+  style={{
+    display: 'none',
+    background: 'none',
+    border: 'none',
+    color: '#fff',
+    fontSize: 24,
+    cursor: 'pointer'
+  }}
+  className="menu-btn"
+>
+  ☰
+</button>
+
         {/* CTA */}
         <a href="#contact" style={{
           background: '#e8c420', color: '#000', fontFamily: "'Barlow Condensed', sans-serif",
@@ -54,9 +69,41 @@ export default function Navbar() {
         >JOIN NOW</a>
       </div>
 
-      <style>{`
-        @media (max-width: 768px) { .desktop-nav { display: none !important; } }
-      `}</style>
-    </nav>
-  )
+      {/*  MOBILE MENU (if added) */}
+    {menuOpen && (
+  <div style={{
+    background: '#000',
+    padding: '20px',
+    textAlign: 'center'
+  }}>
+    {['Home','About','Services','Contact'].map(link => (
+      <a 
+        key={link}
+        href={`#${link.toLowerCase()}`}
+        style={{
+          display: 'block',
+          color: '#fff',
+          padding: '10px 0',
+          textDecoration: 'none',
+          fontSize: 14,
+          letterSpacing: '0.1em'
+        }}
+        onClick={() => setMenuOpen(false)}
+      >
+        {link}
+      </a>
+    ))}
+  </div>
+)}
+
+    {/*  PUT STYLE HERE */}
+    <style>{`
+      @media (max-width: 768px) {
+        .desktop-nav { display: none !important; }
+        .menu-btn { display: block !important; }
+      }
+    `}</style>
+
+  </nav>
+)
 }
