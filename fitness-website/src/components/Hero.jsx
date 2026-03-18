@@ -9,7 +9,7 @@ export default function Hero() {
     alignItems: 'center',
     backgroundImage: `
       linear-gradient(to right, rgba(10,10,10,0.97) 0%, rgba(10,10,10,0.80) 45%, rgba(10,10,10,0.25) 100%),
-      url('/Fitness-Sport-Centre/homeimg.jpg')
+      url('${import.meta.env.BASE_URL}homeimg.jpg')
     `,
     backgroundSize: 'cover',
     backgroundPosition: 'center top',
